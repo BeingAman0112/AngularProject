@@ -1,0 +1,13 @@
+.example-wrap {
+  display: flex;
+  justify-content: center;
+  margin:20px
+}
+.k-form {
+  width: 400px;
+  margin-top: 30px;
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 10px;
+  padding-bottom: 10px;
+}

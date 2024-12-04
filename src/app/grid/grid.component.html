@@ -1,0 +1,47 @@
+<kendo-grid
+      [kendoGridBinding]="gridData"
+      [filterable]="true"
+      [height]="650"
+      [pageSize]="pageSize"
+      [skip]="skip"
+      [pageable]="{
+        buttonCount: buttonCount,
+        info: info,
+        type: type,
+        pageSizes: pageSizes,
+        previousNext: true,
+        position: 'bottom'
+      }"
+    >
+      <kendo-grid-column
+        field="id"
+        title="ID"
+        [width]="55"
+        [filterable]="false"
+      >
+      </kendo-grid-column>
+      <kendo-grid-column field="ProductName" title="Product Name">
+      </kendo-grid-column>
+      <kendo-grid-column field="email" title="Email">
+      </kendo-grid-column>
+      <kendo-grid-column field="Price" title="Price" filter="numeric">
+      </kendo-grid-column>
+      <kendo-grid-column
+      field="purchaseDate"
+      title="Date"
+      format="MM-dd-yyyy"
+      filter="date"
+      >
+      <ng-template kendoGridCellTemplate let-item>
+        {{item.purchaseDate | date: 'MM-dd-yyyy' }}
+      </ng-template>
+    </kendo-grid-column>
+    <kendo-grid-column field="Quantity" title="Quantity" filter="numeric">
+    </kendo-grid-column>
+    <kendo-grid-command-column field="id" title="command" [width]="220">
+      <ng-template kendoGridCellTemplate let-isNew="isNew"  let-dataItem>
+        <button kendoGridRemoveCommand (click)="delete(dataItem.id)">Remove</button>
+      </ng-template>
+    </kendo-grid-command-column>
+
+    </kendo-grid>

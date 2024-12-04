@@ -1,0 +1,113 @@
+<div class="example-wrap">
+  <form class="k-form k-form-md" [formGroup]="registerForm">
+    <fieldset class="k-form-fieldset">
+      <legend class="k-form-legend">Product Details</legend>
+      <kendo-formfield>
+        <kendo-label
+          labelCssClass="k-form-label"
+          [for]="ProductName"
+          text="Product Name"
+        ></kendo-label>
+        <kendo-textbox
+          formControlName="ProductName"
+          #ProductName
+          required
+        ></kendo-textbox>
+        <kendo-formhint>Your Product Name </kendo-formhint>
+        <kendo-formerror>Error: Product Name is required</kendo-formerror>
+      </kendo-formfield>
+
+      <kendo-formfield>
+        <kendo-label
+          labelCssClass="k-form-label"
+          [for]="email"
+          text="Email"
+        ></kendo-label>
+        <kendo-textbox formControlName="email" #email required></kendo-textbox>
+
+        <kendo-formhint>Your active email</kendo-formhint>
+        <kendo-formerror>Error: Not valid email format</kendo-formerror>
+      </kendo-formfield>
+
+
+      <!-- Price************************************* -->
+      <kendo-formfield>
+        <kendo-label
+          labelCssClass="k-form-label"
+          [for]="Price"
+          text="Price"
+        ></kendo-label>
+        <kendo-textbox
+          formControlName="Price"
+          #Price
+          required
+        ></kendo-textbox>
+        <kendo-formhint>Your Price  </kendo-formhint>
+        <kendo-formerror>Error: Price is required</kendo-formerror>
+      </kendo-formfield>
+
+      <kendo-formfield>
+        <kendo-label
+          labelCssClass="k-form-label"
+          [for]="datePicker"
+          [optional]="false"
+          text="Purchase Date"
+        ></kendo-label>
+        <kendo-datepicker
+          #datePicker
+          formControlName="purchaseDate"
+          name="purchaseDate"
+          [style.marginTop.px]="10"
+          >
+        </kendo-datepicker>
+        <kendo-formhint>Your purchase date</kendo-formhint>
+      </kendo-formfield>
+
+
+      <kendo-formfield>
+        <kendo-label
+          labelCssClass="k-form-label"
+          [for]="quantity"
+          [optional]="false"
+          text="Quantity"
+        ></kendo-label>
+        <kendo-numerictextbox
+          #quantity
+          formControlName="Quantity"
+          name="Quantity"
+          [style.marginTop.px]="10"
+          >
+        </kendo-numerictextbox>
+        <kendo-formhint>Your Product Quantity</kendo-formhint>
+      </kendo-formfield>
+
+      <kendo-formfield>
+        <div class="k-checkbox-wrap">
+          <input
+            #acceptNews
+            type="checkbox"
+            kendoCheckBox
+            formControlName="acceptNews"
+          />
+          <kendo-label
+            [for]="acceptNews"
+            class="k-checkbox-label"
+            text="I want to receive notifications"
+          ></kendo-label>
+        </div>
+
+        <kendo-formhint
+          >You will receive our latest updates and promotions on your
+          email</kendo-formhint
+        >
+      </kendo-formfield>
+
+      <div class="k-form-buttons">
+        <button kendoButton themeColor="primary" [disabled]="!registerForm.valid" (click)="submitForm()">
+          Submit
+        </button>
+        <button kendoButton (click)="clearForm()">Clear</button>
+      </div>
+    </fieldset>
+  </form>
+</div>

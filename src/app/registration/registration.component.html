@@ -1,0 +1,132 @@
+<div class="example">
+  <form class="k-form" [formGroup]="form">
+    <h5>HUMAN REGISTRATION FORM</h5>
+    <!-- Name****************** -->
+    <div class="container">
+      <kendo-label text="Full Name"> </kendo-label>
+      <kendo-textbox
+        formControlName="fullName"
+        showErrorIcon="initial"
+        showSuccessIcon="initial"
+        [style.marginBottom.px]="11"
+        [style.width.px]="270"
+      ></kendo-textbox>
+
+      <!-- Email****************** -->
+      <kendo-label text="Email">
+        <kendo-textbox
+          #email
+          formControlName="email"
+          showErrorIcon="initial"
+          showSuccessIcon="initial"
+          [style.marginBottom.px]="11"
+        ></kendo-textbox>
+      </kendo-label>
+
+      <!-- number***************** -->
+
+      <kendo-label text="Number"> </kendo-label>
+      <kendo-textbox
+        formControlName="number"
+        placeholder="Phone number"
+        [style.marginBottom.px]="11"
+        [maxlength]="maxlength"
+        [clearButton]="true"
+        (valueChange)="onValueChange($event)"
+      >
+        <ng-template kendoTextBoxSuffixTemplate>
+          <span class="counter">{{ counter }}</span>
+        </ng-template>
+      </kendo-textbox>
+
+      <!-- age*************************** -->
+      <kendo-label
+        class="col-sm-6"
+        style="margin-bottom: -10px"
+        [for]="age"
+        text="Age"
+      >
+        <kendo-numerictextbox
+          #age
+          formControlName="age"
+          format="no"
+          showErrorIcon="initial"
+          [style.marginBottom.px]="11"
+        ></kendo-numerictextbox>
+      </kendo-label>
+
+      <!-- DateOFBirth********************** -->
+      <div class="wrapper">
+        <h5>Enter Your Date of Birth</h5>
+        <kendo-label [for]="datePicker">
+          <kendo-datepicker
+            #datePicker
+            formControlName="DateofBirth"
+            name="DateofBirth"
+            [style.width.px]="200"
+            [style.marginLeft.px]="7"
+            [style.marginTop.px]="9"
+          >
+          </kendo-datepicker>
+        </kendo-label>
+      </div>
+      <!-- Gender***************************** -->
+      <div class="example-wrapper">
+        <h5>Select Your Gender</h5>
+        <kendo-label>
+          <kendo-dropdownlist
+            [data]="listItems"
+            formControlName="gender"
+            name="gender"
+            [valuePrimitive]="true"
+            [style.marginTop.px]="7"
+          ></kendo-dropdownlist>
+        </kendo-label>
+      </div>
+      <!-- ***************************CheckBOX -->
+      <kendo-formfield showHints="initial">
+        <div class="k-form-field-checkbox-wrap">
+          <input
+            kendoCheckBox
+            id="terms"
+            type="checkbox"
+            formControlName="terms"
+          />
+          <kendo-label
+            class="k-checkbox-label"
+            for="terms"
+            text="I agree with terms and conditions"
+          ></kendo-label>
+        </div>
+
+        <kendo-formhint
+          >By checking this, you agree to our Terms&Conditions
+        </kendo-formhint>
+      </kendo-formfield>
+
+      <!-- <div class="example-config">
+        <strong>{{ value | json }}</strong>
+      </div> -->
+      <kendo-label text="Select rating:">
+        <kendo-rating
+          name="rating"
+          formControlName="rating"
+        >
+        </kendo-rating>
+      </kendo-label>
+      <br />
+
+      <div class="k-form-buttons">
+        <button
+          kendoButton
+          themeColor="primary"
+          [disabled]="!form.valid"
+          (click)="submitForm()"
+        >
+          Register
+        </button>
+        <button kendoButton (click)="clearForm()">Clear</button>
+      </div>
+    </div>
+  </form>
+</div>

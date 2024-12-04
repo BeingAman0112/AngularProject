@@ -1,0 +1,119 @@
+
+    <!-- ******************************************************************************** -->
+
+    <div class="example-config">
+      <div class="card-block k-form ">
+        <legend>Selection Settings</legend>
+        <fieldset class="k-display-flex k-flex-row k-grid-cols-2 k-gap-10 ">
+          <div>
+            <span> <strong>Mode:</strong></span>
+            <div>
+              <input
+                type="radio"
+                name="mode"
+                id="single"
+                value="single"
+                kendoRadioButton
+                [(ngModel)]="mode"
+                (change)="setSelectableSettings()"
+              />
+              <kendo-label
+                class="k-checkbox-label"
+                for="single"
+                text="Single"
+              ></kendo-label>
+            </div>
+            <div>
+              <input
+                type="radio"
+                name="mode"
+                id="multiple"
+                value="multiple"
+                kendoRadioButton
+                [(ngModel)]="mode"
+                (change)="setSelectableSettings()"
+              />
+              <kendo-label
+                class="k-checkbox-label"
+                for="multiple"
+                text="Multiple"
+              ></kendo-label>
+            </div>
+          </div>
+
+          <div>
+            <input
+              type="checkbox"
+              id="chkboxonly"
+              kendoCheckBox
+              [(ngModel)]="checkboxOnly"
+              (change)="setSelectableSettings()"
+            />
+            <kendo-label
+              class="k-checkbox-label"
+              for="chkboxonly"
+              text="Use checkbox only selection"
+            ></kendo-label>
+            <!-- <div>
+              <input
+                type="checkbox"
+                id="drag"
+                kendoCheckBox
+                [disabled]="checkboxOnly || mode === 'single'"
+                [(ngModel)]="drag"
+                (change)="setSelectableSettings()"
+              />
+              <kendo-label
+                class="k-checkbox-label"
+                for="drag"
+                text="Use drag selection"
+              ></kendo-label>
+            </div> -->
+            <div>
+              <input
+                type="checkbox"
+                id="metakey"
+                kendoCheckBox
+                [disabled]="checkboxOnly || mode === 'single'"
+                [(ngModel)]="requireMetaKey"
+                (change)="setSelectableSettings()"
+              />
+              <kendo-label
+                class="k-checkbox-label"
+                for="metakey"
+                text="Require Ctrl or Shift keys for multiple selection"
+              ></kendo-label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+    </div>
+    <kendo-grid
+    
+      [kendoGridBinding]="gridData"
+      [navigable]="true"
+      [height]="450"
+      [pageable]="true"
+      [pageSize]="10"
+      [sortable]="true"
+      [groupable]="true"
+    >
+      <kendo-grid-checkbox-column [width]="40"></kendo-grid-checkbox-column>
+      <kendo-grid-column
+        field="ProductName"
+        title="Product Name"
+      ></kendo-grid-column>
+      <kendo-grid-column
+        field="UnitsInStock"
+        title="Units In Stock"
+      ></kendo-grid-column>
+      <kendo-grid-column
+        field="UnitsOnOrder"
+        title="Units On Order"
+      ></kendo-grid-column>
+      <kendo-grid-column
+        field="ReorderLevel"
+        title="Reorder Level"
+      ></kendo-grid-column>
+      <kendo-grid-column field="Discontinued"></kendo-grid-column>
+    </kendo-grid>

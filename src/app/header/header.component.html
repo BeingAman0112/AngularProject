@@ -1,0 +1,64 @@
+<kendo-appbar class="nav" position="top">
+  <kendo-appbar-section>
+    <button kendoButton fillMode="flat"  (click)="drawer.toggle()">
+      <kendo-svgicon [icon]="menuIcon"></kendo-svgicon>
+    </button>
+  </kendo-appbar-section>
+  <kendo-appbar-section>
+    <h1 class="title">Kendo UI for Angular</h1>
+  </kendo-appbar-section>
+
+  <kendo-appbar-spacer width="32px"></kendo-appbar-spacer>
+
+  <kendo-appbar-section>
+    <ul>
+      <li><span><a routerLink="" routerLinkActive ="active">GET STARTED</a></span></li>
+      <li><span><a routerLink="/about">ABOUT</a></span></li>
+      <li><span><a routerLink="/contacts">CONTACTS</a></span></li>
+    </ul>
+  </kendo-appbar-section>
+
+  <kendo-appbar-spacer></kendo-appbar-spacer>
+
+  <kendo-appbar-section class="actions">
+    <kendo-badge-container>
+      <button kendoButton fillMode="flat">
+        <kendo-svgicon [icon]="bellIcon"></kendo-svgicon>
+      </button>
+      <kendo-badge
+        themeColor="success"
+
+        size="small"
+        position="inside"
+        [cutoutBorder]="true"
+      ></kendo-badge>
+    </kendo-badge-container>
+    <span class="k-appbar-separator"></span>
+  </kendo-appbar-section>
+
+  <kendo-appbar-section>
+    <!-- <kendo-avatar shape="circle" width="26px" height="26px"></kendo-avatar> -->
+    <kendo-avatar rounded="full" width="26px" height="26px" [imageSrc]="designerAvatar"></kendo-avatar>
+  </kendo-appbar-section>
+</kendo-appbar>
+
+<!-- Side Drawer*************** -->
+
+<kendo-drawer-container>
+  <kendo-drawer
+    #drawer
+    [items]="items"
+    [width]="200"
+    mode="push"
+    [mini]="true"
+    [autoCollapse]="false"
+    [(expanded)]="expanded"
+    [isItemExpanded]="isItemExpanded"
+    (select)="onSelect($event)"
+  >
+  </kendo-drawer>
+  <kendo-drawer-content>
+    <!-- <router-outlet></router-outlet>> -->
+    <router-outlet></router-outlet>
+  </kendo-drawer-content>
+</kendo-drawer-container>

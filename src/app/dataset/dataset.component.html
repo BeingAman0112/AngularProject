@@ -1,0 +1,32 @@
+<div class="grid">
+  <div class="list">
+    <kendo-grid [kendoGridBinding]="gridView" [groupable]="true" [sortable]="true" [height]="650">
+      <!-- <kendo-grid-column
+        field="ProductID"
+        title="ID"
+        [width]="80"
+      ></kendo-grid-column> -->
+      <kendo-grid-column field="fullName" title="Full-Name"></kendo-grid-column>
+      <kendo-grid-column field="number" title="Number"></kendo-grid-column>
+      <kendo-grid-column field="email" title="Mail"></kendo-grid-column>
+      <kendo-grid-column field="age" title="Age"></kendo-grid-column>
+      <kendo-grid-column
+        field="DateofBirth"
+        title="Date-Of-Birth"
+      >
+      <ng-template kendoGridCellTemplate let-item>
+        {{item.DateofBirth | date: 'dd-MM-yyyy' }}
+      </ng-template>
+    </kendo-grid-column>
+      <kendo-grid-column field="gender" title="Gender"></kendo-grid-column>
+      <kendo-grid-column field="terms" title="Terms"></kendo-grid-column>
+      <kendo-grid-column field="rating"  title="Rating"></kendo-grid-column>
+      <kendo-grid-command-column field="id" title="command" [width]="220">
+        <ng-template kendoGridCellTemplate let-isNew="isNew" let-dataItem>
+          <!-- <button kendoGridEditCommand [primary]="true">Edit</button> -->
+          <button kendoGridRemoveCommand (click)="delete(dataItem.id)">Remove</button>
+        </ng-template>
+      </kendo-grid-command-column>
+    </kendo-grid>
+  </div>
+</div>

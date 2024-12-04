@@ -1,0 +1,91 @@
+<div class="card-row">
+  <div class="card">
+    <div class="card-header">
+      <img src="" alt="Profile Picture" />
+    </div>
+    <div class="card-body">
+      <h2>Aman Prajapati</h2>
+      <p>Software Developer at Eudemonic</p>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+        <a href="#"><i class="fab fa-github"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header">
+      <img src="" alt="Profile Picture" />
+    </div>
+    <div class="card-body">
+      <h2>Aman Prajapati</h2>
+      <p>Software Developer at Eudemonic</p>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+        <a href="#"><i class="fab fa-github"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header">
+      <img src="" alt="Profile Picture" />
+    </div>
+    <div class="card-body">
+      <h2>Aman Prajapati</h2>
+      <p>Software Developer at Eudemonic</p>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+        <a href="#"><i class="fab fa-github"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header">
+      <img src="" alt="Profile Picture" />
+    </div>
+    <div class="card-body">
+      <h2>Aman Prajapati</h2>
+      <p>Software Developer at Eudemonic</p>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+        <a href="#"><i class="fab fa-github"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row details">
+  <div class="a">
+    <div class="col-sm-3">
+      <kendo-chart>
+        <kendo-chart-category-axis>
+          <kendo-chart-category-axis-item [categories]="categories">
+          </kendo-chart-category-axis-item>
+        </kendo-chart-category-axis>
+        <kendo-chart-series>
+          <kendo-chart-series-item [data]="seriesData">
+          </kendo-chart-series-item>
+        </kendo-chart-series>
+      </kendo-chart>
+    </div>
+  </div>
+
+  <div class="b">
+    <kendo-chart title="World Population by Broad Age Groups">
+      <kendo-chart-legend position="bottom"></kendo-chart-legend>
+      <kendo-chart-series>
+        <kendo-chart-series-item
+          type="pie"
+          [data]="pieData"
+          field="value"
+          categoryField="category"
+          [labels]="{ visible: true, content: labelContent }"
+        >
+        </kendo-chart-series-item>
+      </kendo-chart-series>
+    </kendo-chart>
+  </div>
+</div>

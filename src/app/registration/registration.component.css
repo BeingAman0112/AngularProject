@@ -1,0 +1,46 @@
+.kendo-label {
+  margin-bottom: 25px;
+}
+.kendo-textbox {
+  width: 200px;
+  margin-left: 5px;
+}
+.example {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 30px;
+
+  border-radius: 15px;
+  padding: 12px;
+
+}
+.wrapper {
+  padding-bottom: 20px;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+}
+.k-form-buttons {
+  margin-top: 15px;
+}
+.kendo-dropdownlist {
+  width: 170px;
+}
+.counter {
+  color: #ff6358;
+  margin: 0 5px 0 5px;
+}
+.counter:hover {
+  color: #eb5b51;
+}
+.container{
+ display: flex;
+ flex-direction: column;
+}
+.kendo-label > label {
+  margin-right: 8px;
+}
