@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { drawerRoutes, HeaderComponent } from './header/header.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { SharingService } from './sharing.service';
 
 
 
@@ -45,16 +44,13 @@ export const routes: Routes = [
   {
     path:"products",
     // component:CustomerComponent
-    loadComponent:()=>import('./customer/customer.component').then((mod)=>mod.CustomerComponent),
-    resolve: {
-      crisis: SharingService
-    }
-  },{
-    path:"products/Grid",
-    // component:GridComponent
-    loadComponent:()=>import('./grid/grid.component').then((mod)=>mod.GridComponent)
+    loadComponent:()=>import('./customer/customer.component').then((mod)=>mod.CustomerComponent)
   }
-];
+  ,{
+    path:"products", children:[
+      {path:"Grid" , loadComponent:()=>import('./grid/grid.component').then((mod)=>mod.GridComponent) }
+    ]}
+  ];
 
 
 @NgModule({
